@@ -31,7 +31,12 @@ class ImageAdapter(var list:ArrayList<MovieModel>): RecyclerView.Adapter<ImageAd
         holder.imageView.setImageResource(list[position].imageId)
 
         holder.itemView.setOnClickListener {
-
+            val dialog = Dialog(holder.imageView.context)
+            dialog.setContentView(R.layout.movie_detail_dialog)
+            dialog.setTitle(list[position].text)
+            val image = dialog.findViewById<ImageView>(R.id.imageView2)
+            image.setImageResource(list[position].imageId)
+            dialog.show()
         }
     }
 }
